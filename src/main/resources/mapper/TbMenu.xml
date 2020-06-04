@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.springboot.mapper.TbMenuMapper">
+    <select id="selectMenu" resultType="com.cykj.springboot.entity.TbMenu" resultMap="menu">
+        select menu_id as menuId, menu_name as menuName, par_menu_id as parMenuId, menu_path as menuPath,
+        remark from tb_menu where par_menu_id=2
+    </select>
+    <resultMap id="menu" type="com.cykj.entity.TbMenu">
+        <collection property="list" column="menuId" ofType="com.cykj.springboot.entity.TbMenu" select="menu2">
+        </collection>
+    </resultMap>
+    <select id="menu2" resultType="com.cykj.springboot.entity.TbMenu">
+        select menu_id as menuId, menu_name as menuName, par_menu_id as parMenuId, menu_path as menuPath,
+        remark from tb_menu where par_menu_id = #{menuId}
+    </select>
+</mapper>

@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-size: 100%;
+}
+
+body {
+    width: 100%;
+    background-color: cornsilk;
+}
+
+table {
+    margin: 5% auto 5% auto;
+}
+
+.message {
+    width: 70%;
+}
+
+mt-button {
+
+    background-color: darkgrey;
+}
+
+@media (min-width: 700px) {
+    #messageArea {
+        width: 40%;
+        font-size: 45px;
+        background-color: royalblue;
+        margin: 5% auto 5% auto;
+    }
+
+    .message {
+        font-size: 25px;
+    }
+
+    .text_head, input[type='button'] {
+        width: 35%;
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 700px) {
+    #messageArea {
+        width: 80%;
+        font-size: 30px;
+        background-color: blueviolet;
+        margin: 20% auto 10% auto;
+    }
+
+    .message {
+        font-size: 20px;
+    }
+
+    .text_head, input[type='button'] {
+        width: 35%;
+        font-size: 22px;
+    }
+}
+
+li {
+    list-style: none;
+}
+
+#errorNotify {
+    color: red;
+    font-size: 20px;
+    text-align: center;
+}

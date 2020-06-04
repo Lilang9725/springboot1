@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.springboot.mapper.TbUserFileMapper">
+    <select id="selectUserFileList" resultType="com.cykj.entity.TbUserFile">
+        select uf_id as ufId, file_id as fileId, user_id as userId, uplad_time as upladTime,
+        download_count as downloadCount, file_state_id as fileStateId, file_message as fileMessage,
+        file_user_path as fileUserPath, remark from tb_user_file where 1=1
+        <if test="fileId != null and fileId != ''"> and file_id = #{ufId}</if>
+        <if test="userId != null and userId != ''"> and user_id = #{userId}</if>
+    </select><!-- 返回list -->
+    <select id="selectUserFile" resultType="com.cykj.springboot.entity.TbUserFile">
+        select uf_id as ufId, file_id as fileId, user_id as userId, uplad_time as upladTime,
+        download_count as downloadCount, file_state_id as fileStateId, file_message as fileMessage,
+        file_user_path as fileUserPath, remark from tb_user_file where 1=1
+        <if test="ufId != null and ufId != ''">and uf_id = #{ufId} </if>
+    </select><!-- 返回当对象 -->
+</mapper>

@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-size: 100%;
+}
+
+body {
+    background-color: cornsilk;
+}
+
+/*背景图片遮挡*/
+@media (min-width: 700px) {
+    #messageArea {
+        width: 30%;
+        font-size: 40px;
+        margin: 10% auto auto;
+    }
+
+    .message {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 700px ) {
+    #messageArea {
+        width: 80%;
+        font-size: 30px;
+        margin: 20% auto auto;
+    }
+
+    .message {
+        font-size: 20px;
+    }
+}
+
+#messageArea {
+    height: auto;
+    border: 1px solid #ba9217;
+    background: rgba(108, 64, 64, 0.5);
+    text-align: center;
+    border-radius: 5%;
+}
+
+.message {
+    height: 40px;
+    width: 60%;
+    margin-top: 2%;
+}
+
+input[name='verifyCode'] {
+    margin-top: 2%;
+    height: 40px;
+    width: 30%;
+}
+
+input[type = 'button'] {
+    width: 30%;
+    margin: 5% auto 5% auto;
+}
+
+#regA {
+    margin: 70%;
+    font-size: 20px
+}

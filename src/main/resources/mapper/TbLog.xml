@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cykj.springboot.mapper.TbLogMapper">
+    <select id="getLog" parameterType="com.cykj.springboot.entity.UserList">
+        select log_id as logId,operate,param,user_id as userId,log_time as logTime,remark from tb_log
+        <where>
+            <if test="userId != null and userId != ''"> and user_id = #{userId}</if>
+            <if test="operate != null and operate != ''"> and operate = #{operate}</if>
+            <if test="logTime != null and logTime != ''"> and log_time = #{logTime}</if>
+        </where>
+    </select>
+    <insert id="addLog" parameterType="com.cykj.springboot.entity.TbLog">
+        insert into tb_log (operate, param, user_id, log_time, remark)
+        values (#{operate},#{param},#{userId},#{logTime},#{remark})
+    </insert>
+    <select id="selectLog" parameterType="com.cykj.springboot.entity.TbLog" resultMap="LogMap">
+    <!-- 嵌套查询（执行只调selectLog）   执行顺序：sselectLog -> LogMap -> selectUserMessage -->
+        select log_id as logId,operate,param,user_id as userId,log_time as logTime,remark from
+        tb_log where log_id = #{logId}
+    <!-- 属性注明：parameterType输入类型("#{}"可以是直接是注这里的类型，也可以的对象类型内的属性名！)；
+             resultMap用于将从数据库里得到数据后，进行嵌套的“连接”标签名(执行到标签名对应标签去) -->
+    </select>
+    <resultMap id="LogMap" type="com.cykj.springboot.entity.TbLog">
+        <association property="user" column="userId" javaType="com.cykj.springboot.entity.UserList" select="selectUserMessage">
+        </association>
+    <!-- 属性注明：property主表实例对象中，承载外键对象的属性名(用于放置外对象)；column主表实例对象的外键属性名；
+            javaType主表实例对象，承载对象的接收类型(路径)；select嵌套外表对象执行标签id名 -->
+    </resultMap>
+    <select id="selectUserMessage" parameterType="java.lang.Long" resultType="com.cykj.springboot.entity.UserList">
+    <!-- resultType返回类型 -->
+        select user_id as userId,user_login_id as userLoginId,user_login_password as userLoginPassword
+        ,user_name as userName,user_gender as userGender,user_state as userState,education_id educationId
+        ,profession_id as professionId,mobile,e_mail as eMail,integral,remark from tb_user
+        where user_id = #{userId}
+    </select>
+</mapper>

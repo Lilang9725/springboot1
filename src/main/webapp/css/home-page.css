@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#userMessageBox {
+    width: 100%;
+    background-color: rosybrown;
+}
+
+#menu-area {
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    body {
+        background-color: #31708f;
+        width: 100%;
+        height: 100%
+    }
+
+    #menu-area {
+        width: 35%;
+        height: 80%;
+        float: left
+    }
+
+    #dataArea {
+        width: 64%;
+        height: 100%;
+        float: right;
+    }
+
+    #myActionBox {
+        width: 90%;
+        height: 70%;
+    }
+
+    /*顶功能效应区*/
+    #actionContent {
+        width: 100%;
+        height: 100%
+    }
+}
+
+@media (min-width: 700px) {
+    body {
+        background-color: cornsilk;
+        width: 100%;
+        height: 95%
+    }
+
+    #menu-area {
+        width: 20%;
+        height: 80%;
+        float: left
+    }
+
+    #dataArea {
+        width: 79.5%;
+        height: 100%;
+        float: right;
+    }
+
+    #myActionBox {
+        width: 80%;
+        height: 80%;
+    }
+
+    #actionContent {
+        width: 120%;
+        height: 100%;
+    }
+}
+
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.f-r {
+    float: right !important;
+    _display: inline
+}
+
+.item {
+    width: 100%;
+    text-align: center;
+    background-color: darkgoldenrod
+}
+
+.panel {
+    background-color: #fff;
+    border: solid 1px transparent
+}
+
+.panel-header {
+    border-bottom: solid 1px transparent;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 700
+}
+
+/*面板标题*/
+.panel-body {
+    padding: 15px
+}
+
+/*面板内容*/
+.panel-footer {
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding: 5px 20px
+}
+
+/*面板页脚*/
+.panel-default {
+    border-color: #3bb4f2
+}
+
+.panel-default > .panel-header {
+    border-color: #3bb4f2;
+    background-color: #3bb4f2;
+    color: #fff
+}
+
+#content {
+    width: 100%;
+    height: 90%
+}
+
+.myMenu {
+    width: 100%;
+    border: 1px solid yellow;
+    background-color: #31708f
+}
